@@ -1,0 +1,17 @@
+{
+  "name": "twitch-app",
+  "version": "1.0.0",
+  "description": "Twitch App from FCC",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joe Smith <joesmith0488@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "react-redux": "^4.0.1",
+    "redux": "^3.0.5"
+  }
+}
