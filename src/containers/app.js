@@ -5,20 +5,21 @@ import Nav from '../components/nav';
 import InputBox from '../components/input-box';
 import StreamersBox from '../components/streamers-box';
 
-import { SET_VISIBILITY_FILTER, SET_SEARCH_FILTER, DELETE_STREAMER } from '../actions/actionTypes'
-import getStreamer from '../utils/api'
+import { setSearchFilter, setVisibilityFilter, deleteStreamer, getStreamer } from '../actions/actionCreators'
 
 let App = ({dispatch, visibleStreamers, visibilityFilter, isFetching}) => (
 	<div className='container'>
 		<Nav
 			visibilityFilter={visibilityFilter}
-			onVisibilityClick={text =>
-				dispatch({ type: SET_VISIBILITY_FILTER, filter: text })
+			onVisibilityClick={filter =>
+				dispatch(setVisibilityFilter(filter))
 		} />
 		<InputBox
-			onAddClick={text => getStreamer(text)}
-			onSearchChange={text =>
-				dispatch({ type: SET_SEARCH_FILTER, filter: text })
+			onAddClick={streamer =>
+        dispatch(getStreamer(streamer))
+      }
+			onSearchChange={filter =>
+				dispatch(setSearchFilter(filter))
 		} />
 		{isFetching && <div className='spinner-container'>
 			<div className='spinner-loader'>Loading...</div>
@@ -26,7 +27,7 @@ let App = ({dispatch, visibleStreamers, visibilityFilter, isFetching}) => (
 		<StreamersBox
 			streamers={visibleStreamers}
 			onDeleteClick={index =>
-				dispatch({ type: DELETE_STREAMER, index: index })
+				dispatch(deleteStreamer(index))
 		} />
 	</div>
 );

@@ -1,10 +1,12 @@
 import { createStore, applyMiddleware, compose } from 'redux';
+import thunkMiddleWare from 'redux-thunk';
+
 import rootReducer from '../reducers/rootReducer';
 import DevTools from '../containers/DevTools';
 
 const finalCreateStore = compose(
   // Middleware you want to use in development:
-  // applyMiddleware(d1, d2, d3),
+  applyMiddleware(thunkMiddleWare),
   // Required! Enable Redux DevTools with the monitors you chose
   DevTools.instrument()
 )(createStore);

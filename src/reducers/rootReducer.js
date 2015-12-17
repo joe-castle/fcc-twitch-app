@@ -4,10 +4,8 @@ import filters from './filters';
 import streamers from './streamers';
 import isFetching from './isFetching';
 
-let twitchApp = combineReducers({
+export default combineReducers({
 	streamers,
 	filters,
 	isFetching
 });
-
-export default twitchApp;
