@@ -4,7 +4,7 @@
   "description": "Twitch App from FCC",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node webpack.dev.server.hot.js"
   },
   "author": "Joe Smith <joesmith0488@gmail.com>",
   "license": "ISC",
@@ -23,6 +23,9 @@
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
     "react-hot-loader": "^1.3.0",
+    "redux-devtools": "^3.0.0",
+    "redux-devtools-dock-monitor": "^1.0.1",
+    "redux-devtools-log-monitor": "^1.0.1",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0"
   }

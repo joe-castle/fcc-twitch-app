@@ -1,7 +1,7 @@
 // import fetch from 'whatwg-fetch';
 // import Promise from 'es6-promise';
 
-import store from '../reducers/root';
+import store from '../store/configureStore.dev';
 import { SET_FETCH, ADD_STREAMER } from '../actions/actionTypes';
 
 let getStreamer = (streamer) => {

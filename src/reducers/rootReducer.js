@@ -10,4 +10,4 @@ let twitchApp = combineReducers({
 	isFetching
 });
 
-export default createStore(twitchApp);
+export default twitchApp;
