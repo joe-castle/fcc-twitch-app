@@ -4,7 +4,8 @@
   "description": "Twitch App from FCC",
   "main": "index.js",
   "scripts": {
-    "start": "node webpack.dev.server.hot.js"
+    "start": "node webpack.dev.server.hot.js",
+    "build": "webpack -p --config webpack.production.config.js"
   },
   "author": "Joe Smith <joesmith0488@gmail.com>",
   "license": "ISC",

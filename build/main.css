@@ -1,0 +1,190 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+body {
+  background-color: #8269B9;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.container {
+  border: 1px solid #674ca3;
+  padding: 0;
+  width: 290px;
+}
+
+nav ul {
+  background-color: #674ca3;
+  border-bottom: 1px solid #674ca3;
+  margin: 0;
+  width: 100%;
+}
+nav ul li {
+  color: #45336C;
+  display: inline-block;
+  font-size: 1.5em;
+  font-weight: 500;
+  height: 50px;
+  line-height: 2em;
+  list-style: none;
+  text-align: center;
+  width: 96px;
+}
+nav ul li:not(:last-child) {
+  border-right: 1px solid #8269B9;
+}
+nav ul li:hover, nav ul li.active {
+  background-color: #bcafd9;
+  cursor: pointer;
+}
+
+section {
+  background-color: #9f8cc9;
+}
+section:nth-child(2) {
+  padding: 15px 0;
+  border-bottom: 1px solid #674ca3;
+}
+
+#search, #add-streamer {
+  margin: 0 auto 10px auto;
+  width: 80%;
+}
+
+#add-streamer {
+  margin-bottom: 0;
+}
+
+.input-group-addon, .btn {
+  background-color: #674ca3;
+  border-color: #674ca3;
+  color: #45336C;
+}
+
+.btn:hover {
+  color: #bcafd9;
+}
+
+.btn:focus {
+  outline: none !important;
+}
+
+.form-control {
+  background-color: #d9d1ea;
+  color: #45336C;
+}
+.form-control:focus {
+  border-color: #45336C;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(69, 51, 108, 0.6);
+}
+
+#streamers {
+  margin: 0;
+}
+#streamers li {
+  background-color: #bcafd9;
+  height: 80px;
+  position: relative;
+  width: 100%;
+}
+#streamers li img {
+  border: 2px solid #674ca3;
+  border-radius: 50%;
+  padding: 3px;
+  left: 35px;
+  position: absolute;
+  top: 10px;
+  width: 55px;
+}
+#streamers li a {
+  color: #8269B9;
+  left: 100px;
+  position: absolute;
+  top: 20px;
+}
+#streamers li a:hover {
+  text-decoration: none;
+  color: #45336C;
+}
+#streamers li .glyphicon {
+  position: absolute;
+  right: 23px;
+  top: 30px;
+}
+#streamers li .delete {
+  color: #8269B9;
+  font-size: 0.8em;
+  left: 10px;
+}
+#streamers li .delete:hover {
+  color: #45336C;
+  cursor: pointer;
+}
+#streamers li .status {
+  color: gray;
+  font-size: 0.75em;
+  left: 100px;
+  overflow: hidden;
+  position: absolute;
+  text-overflow: ellipsis;
+  top: 42px;
+  white-space: nowrap;
+  width: 150px;
+}
+#streamers li:not(:last-child) {
+  border-bottom: 1px solid #674ca3;
+}
+
+.glyphicon-ok {
+  color: green;
+}
+
+.glyphicon-remove {
+  color: #8269B9;
+}
+
+.spinner-container {
+  padding: 20px 120px;
+}

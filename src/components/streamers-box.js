@@ -11,7 +11,6 @@ export default ({streamers, onDeleteClick}) => (
 					stream={streamer.stream}
 					channel={streamer.channel}
 					onDeleteClick={onDeleteClick}
-					index={index}
 				/>
 			)}
 		</ul>

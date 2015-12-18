@@ -1,3 +1,4 @@
+// TODO: Provide visual warning when stream data not available.
 import {
   SET_VISIBILITY_FILTER,
   SET_SEARCH_FILTER,
@@ -20,9 +21,9 @@ export const setIsFetching = (fetching) => ({
   fetching
 })
 
-export const deleteStreamer = (index) => ({
+export const deleteStreamer = (id) => ({
   type: DELETE_STREAMER,
-  index
+  id
 });
 
 export const addStreamer = ({channel, stream}) => ({
@@ -42,11 +43,10 @@ export const getStreamer = (streamer) => (
 
     return Promise.all([channel, stream])
     	.then(json => {
+        dispatch(setIsFetching(false));
     		if (json[0].error) {
-    			dispatch(setIsFetching(false));
     			console.error(json[0].message);
     		} else {
-    			dispatch(setIsFetching(false));
     			dispatch(addStreamer({channel: json[0], stream: json[1]}));
     		}
     	});

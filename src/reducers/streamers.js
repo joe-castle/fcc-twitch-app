@@ -8,9 +8,10 @@ export default (state = [], action) => {
 				...state
 			];
 		case DELETE_STREAMER:
+      let index = state.map(x => x.channel._id).indexOf(action.id);
 			return [
-				...state.slice(0, action.index),
-				...state.slice(action.index + 1)
+				...state.slice(0, index),
+				...state.slice(index + 1)
 			];
 		default:
 			return state;

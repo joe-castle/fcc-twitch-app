@@ -22,8 +22,8 @@ export default createClass({
 		);
 	},
 	addStreamer() {
-		const node = this.refs.streamerInput;
-		const text = node.value.trim();
+		let node = this.refs.streamerInput;
+		let text = node.value.trim();
 		this.props.onAddClick(text);
 		node.value = '';
 	},

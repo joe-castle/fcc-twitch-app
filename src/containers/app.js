@@ -26,8 +26,8 @@ let App = ({dispatch, visibleStreamers, visibilityFilter, isFetching}) => (
 		</div>}
 		<StreamersBox
 			streamers={visibleStreamers}
-			onDeleteClick={index =>
-				dispatch(deleteStreamer(index))
+			onDeleteClick={id =>
+				dispatch(deleteStreamer(id))
 		} />
 	</div>
 );
