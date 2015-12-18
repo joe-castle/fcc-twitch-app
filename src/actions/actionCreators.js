@@ -38,8 +38,10 @@ export const getStreamer = (streamer) => (
   dispatch => {
     dispatch(setIsFetching(true));
 
-    let channel = fetch('https://api.twitch.tv/kraken/channels/'+streamer).then(res => res.json());
-  	let stream = fetch('https://api.twitch.tv/kraken/streams/'+streamer).then(res => res.json());
+    let channel = fetch('https://api.twitch.tv/kraken/channels/'+streamer)
+      .then(res => res.json());
+  	let stream = fetch('https://api.twitch.tv/kraken/streams/'+streamer)
+      .then(res => res.json());
 
     return Promise.all([channel, stream])
     	.then(json => {

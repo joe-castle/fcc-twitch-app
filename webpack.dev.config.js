@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
 
 module.exports = {
@@ -16,6 +17,11 @@ module.exports = {
     new webpack.ProvidePlugin({
       Root: './root',
       configureStore: './store/configureStore'
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Twitch App',
+      template: './assets/templates/index.html',
+      inject: true
     })
   ],
   module: {
@@ -23,6 +29,9 @@ module.exports = {
       test: /\.js$/,
       loaders: ['react-hot', 'babel'],
       include: path.join(__dirname, 'src')
+    },{
+      test: /\.scss$/,
+      loaders: ['style', 'css', 'autoprefixer', 'sass'],
     }]
   }
 };

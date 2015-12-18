@@ -8,9 +8,7 @@ const store = configureStore();
 
 module.exports = () => (
 	<Provider store={store}>
-    <div>
-      <App />
-    </div>
+    <App />
 	</Provider>
 );
 
