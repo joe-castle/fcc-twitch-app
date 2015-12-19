@@ -1,12 +1,14 @@
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var path = require('path');
+'use strict';
+
+let webpack = require('webpack');
+let HtmlWebpackPlugin = require('html-webpack-plugin');
+let path = require('path');
 
 module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/only-dev-server',
-    './src/index'
+    './src/frontend/index'
   ],
   output: {
     path: __dirname,
@@ -20,7 +22,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       title: 'Twitch App',
-      template: './assets/templates/index.html',
+      template: './src/frontend/index.template.html',
       inject: true
     })
   ],
@@ -31,7 +33,8 @@ module.exports = {
       include: path.join(__dirname, 'src')
     },{
       test: /\.scss$/,
-      loaders: ['style', 'css', 'autoprefixer', 'sass'],
+      loaders: ['style', 'css', 'autoprefixer', 'sass']
     }]
-  }
+  },
+  devtool: 'sourcemap',
 };

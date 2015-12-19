@@ -1,6 +1,7 @@
-import React, { createClass } from 'react';
+import React, { createClass, PropTypes } from 'react';
 
 export default createClass({
+  displayName: 'InputBox',
 	render() {
 		return (
 			<section>
@@ -21,6 +22,10 @@ export default createClass({
 			</section>
 		);
 	},
+  propTypes: {
+    onAddClick: PropTypes.func.isRequired,
+    onSearchChange: PropTypes.func.isRequired
+  },
 	addStreamer() {
 		let node = this.refs.streamerInput;
 		let text = node.value.trim();

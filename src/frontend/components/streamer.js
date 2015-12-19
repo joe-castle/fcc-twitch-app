@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
-export default ({stream, channel, onDeleteClick}) => (
+const Streamer = ({stream, channel, onDeleteClick}) => (
 	<li>
 		<span
 			onClick={() => onDeleteClick(channel._id)}
@@ -13,3 +13,10 @@ export default ({stream, channel, onDeleteClick}) => (
 		<span className='status'>{stream.stream && channel.status}</span>
 	</li>
 );
+Streamer.propTypes = {
+  stream: PropTypes.object.isRequired,
+  channel: PropTypes.object.isRequired,
+  onDeleteClick: PropTypes.func.isRequired
+};
+
+export default Streamer;

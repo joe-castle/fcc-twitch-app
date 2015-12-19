@@ -17,6 +17,8 @@ module.exports = () => (
 	</Provider>
 );
 
-let initialStreamers = ['freecodecamp', 'storbeck', 'terakilobyte', 'habathcx', 'RobotCaleb', 'thomasballinger', 'noobs2ninjas', 'beohoff', 'medrybw'];
-
-initialStreamers.forEach(streamer => store.dispatch(getStreamer(streamer)));
+fetch('/streamers')
+  .then(res => res.json())
+  .then(json =>
+    json.forEach(streamer => store.dispatch(getStreamer(streamer)))
+  );

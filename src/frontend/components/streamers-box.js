@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import Streamer from './streamer';
 
-export default ({streamers, onDeleteClick}) => (
+const StreamersBox = ({streamers, onDeleteClick}) => (
 	<section>
 		<ul id='streamers'>
 			{streamers.map((streamer, index) =>
@@ -16,3 +16,9 @@ export default ({streamers, onDeleteClick}) => (
 		</ul>
 	</section>
 );
+StreamersBox.propTypes = {
+  streamers: PropTypes.array.isRequired,
+  onDeleteClick: PropTypes.func.isRequired
+};
+
+export default StreamersBox;

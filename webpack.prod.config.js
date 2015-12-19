@@ -1,11 +1,13 @@
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var path = require('path');
+'use strict';
+
+let webpack = require('webpack');
+let HtmlWebpackPlugin = require('html-webpack-plugin');
+let path = require('path');
 
 module.exports = {
-  entry: './src/index',
+  entry: './src/frontend/index',
   output: {
-    path: path.join(__dirname, 'build'),
+    path: path.join(__dirname, 'build', 'public'),
     filename: 'bundle.js'
   },
   plugins: [
@@ -20,7 +22,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       title: 'Twitch App',
-      template: './assets/templates/index.html',
+      template: './src/frontend/index.template.html',
       inject: true
     })
   ],
