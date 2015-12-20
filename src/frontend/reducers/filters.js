@@ -1,4 +1,4 @@
-import { SET_VISIBILITY_FILTER, SET_SEARCH_FILTER } from '../actions/actionTypes'
+import { SET_VISIBILITY_FILTER, SET_SEARCH_FILTER } from '../constants/ActionTypes';
 
 export default (state = {
 	visibilityFilter: 'SHOW_ALL',

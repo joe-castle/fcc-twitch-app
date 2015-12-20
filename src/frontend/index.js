@@ -1,4 +1,4 @@
-import './assets/sass/spinner.scss'
+import  './assets/sass/spinner.scss'
 import './assets/sass/reset.scss'
 import './assets/sass/style.scss';
 

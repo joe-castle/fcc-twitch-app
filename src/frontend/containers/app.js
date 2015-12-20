@@ -5,7 +5,8 @@ import Nav from '../components/nav';
 import InputBox from '../components/input-box';
 import StreamersBox from '../components/streamers-box';
 
-import { setSearchFilter, setVisibilityFilter, deleteStreamer, getStreamer } from '../actions/actionCreators'
+import { deleteStreamer, getStreamer } from '../actions/StreamerActions';
+import { setSearchFilter, setVisibilityFilter } from '../actions/FilterActions';
 
 let App = ({dispatch, visibleStreamers, visibilityFilter, isFetching}) => (
 	<div className='container'>

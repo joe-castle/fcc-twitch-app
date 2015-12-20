@@ -1,12 +1,12 @@
 'use strict';
 
-let webpack = require('webpack');
-let HtmlWebpackPlugin = require('html-webpack-plugin');
-let path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
 module.exports = {
   entry: [
-    'webpack-dev-server/client?http://localhost:3000',
+    'webpack-dev-server/client?http://localhost:3001',
     'webpack/hot/only-dev-server',
     './src/frontend/index'
   ],
@@ -36,5 +36,4 @@ module.exports = {
       loaders: ['style', 'css', 'autoprefixer', 'sass']
     }]
   },
-  devtool: 'sourcemap',
 };

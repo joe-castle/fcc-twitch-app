@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 
 import App from './containers/app';
-import { getStreamer } from './actions/actionCreators';
+import { getStreamer } from './actions/StreamerActions';
 
 const store = configureStore();
 

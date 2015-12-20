@@ -1,4 +1,4 @@
-import { ADD_STREAMER, DELETE_STREAMER } from '../actions/actionTypes';
+import { ADD_STREAMER, DELETE_STREAMER } from '../constants/ActionTypes';
 
 export default (state = [], action) => {
 	switch (action.type) {

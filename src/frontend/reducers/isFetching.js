@@ -1,4 +1,4 @@
-import { SET_ISFETCHING } from '../actions/actionTypes';
+import { SET_ISFETCHING } from '../constants/ActionTypes';
 
 export default (state = false, action) => {
 	switch(action.type) {

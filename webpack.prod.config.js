@@ -1,10 +1,10 @@
 'use strict';
 
-let webpack = require('webpack');
-let HtmlWebpackPlugin = require('html-webpack-plugin');
-let path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
-module.exports = {
+module.exports = [{
   entry: './src/frontend/index',
   output: {
     path: path.join(__dirname, 'build', 'public'),
@@ -24,16 +24,45 @@ module.exports = {
       title: 'Twitch App',
       template: './src/frontend/index.template.html',
       inject: true
-    })
+    }),
+    new webpack.optimize.UglifyJsPlugin()
   ],
   module: {
     loaders: [{
       test: /\.js$/,
       loaders: ['babel'],
-      include: path.join(__dirname, 'src')
+      excluse: /node_modules/
     },{
       test: /\.scss$/,
       loaders: ['style', 'css', 'sass'],
     }]
+  },
+  devtool: 'source-map'
+},{
+  entry: './src/backend/',
+  output: {
+    path: path.join(__dirname, 'build'),
+    filename: 'server.js',
+    libraryTarget: 'commonjs2'
+  },
+  target: 'node',
+  node: {
+    console: false,
+    global: false,
+    process: false,
+    Buffer: false,
+    __filename: false,
+    __dirname: false
+  },
+  externals: /^[a-z\-0-9]+$/,
+  plugins: [],
+  module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel'
+      }
+    ]
   }
-};
+}];

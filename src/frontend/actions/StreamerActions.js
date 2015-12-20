@@ -1,33 +1,17 @@
-// TODO: Provide visual warning when stream data not available.
-import {
-  SET_VISIBILITY_FILTER,
-  SET_SEARCH_FILTER,
-  SET_ISFETCHING,
-  DELETE_STREAMER,
-  ADD_STREAMER } from '../actions/actionTypes'
-
-export const setVisibilityFilter = (filter) => ({
-  type: SET_VISIBILITY_FILTER,
-  filter
-});
-
-export const setSearchFilter = (filter) => ({
-  type: SET_SEARCH_FILTER,
-  filter
-});
+import * as types from '../constants/ActionTypes'
 
 export const setIsFetching = (fetching) => ({
-  type: SET_ISFETCHING,
+  type: types.SET_ISFETCHING,
   fetching
 })
 
 export const deleteStreamer = (id) => ({
-  type: DELETE_STREAMER,
+  type: types.DELETE_STREAMER,
   id
 });
 
 export const addStreamer = ({channel, stream}) => ({
-  type: ADD_STREAMER,
+  type: types.ADD_STREAMER,
   payload: {
     channel,
     stream
@@ -47,6 +31,7 @@ export const getStreamer = (streamer) => (
     	.then(json => {
         dispatch(setIsFetching(false));
     		if (json[0].error) {
+          // TODO: Provide visual warning when stream data not available.
     			console.error(json[0].message);
     		} else {
     			dispatch(addStreamer({channel: json[0], stream: json[1]}));

@@ -4,13 +4,19 @@
   "description": "Twitch App from FCC",
   "main": "index.js",
   "scripts": {
-    "start": "node webpack.dev.server.js",
+    "clean": "rimraf build",
+    "start": "babel-node -- src/backend/",
+    "server": "nodemon --exec babel-node -- src/backend/",
+    "test": "mocha --compilers js:babel-core/register --watch",
     "lint": "eslint src/",
-    "build": "webpack -p --progress --colors --config webpack.prod.config.js"
+    "build:webpack": "NODE_ENV=production webpack --progress --colors --config webpack.prod.config.js",
+    "build": "npm run clean && npm run build:webpack",
+    "deploy": "npm run build &&"
   },
   "author": "Joe Smith <joesmith0488@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
+    "classnames": "^2.2.1",
     "express": "^4.13.3",
     "mongoose": "^4.3.3",
     "react": "^0.14.3",
@@ -31,6 +37,7 @@
     "eslint-config-google": "^0.3.0",
     "eslint-plugin-react": "^3.11.3",
     "html-webpack-plugin": "^1.7.0",
+    "mocha": "^2.3.4",
     "node-sass": "^3.4.2",
     "react-hot-loader": "^1.3.0",
     "redux-devtools": "^3.0.0",
@@ -38,6 +45,7 @@
     "redux-devtools-log-monitor": "^1.0.1",
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
+    "supertest": "^1.1.0",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0"
   }
