@@ -1,13 +1,27 @@
 'use strict';
 
-import app from './api';
-const port = process.env.PORT || 3000;
+const mongoose = require('mongoose');
 
+mongoose.connect('mongodb://localhost:27017/development');
+mongoose.connection.on('error', (err) => console.log('DB Error'));
+
+const Streamers = require('./models/streamers');
+
+// Provides correct path to static files base on NODE_ENV.
+const app = require('./routes')(
+  process.env.NODE_ENV === 'production' ?
+  'public' :
+  '../public',
+  Streamers.model
+);
+
+const port = process.env.PORT || 3000;
 app.listen(port, () =>
   console.log('Express server listening on port', port)
 );
 
-if (process.env.NODE_ENV !== 'production') {
+// React-Hot-Reload Server. For development only.
+if (process.env.NODE_ENV === 'development') {
   const webpack = require('webpack');
   const WebpackDevServer = require('webpack-dev-server');
   const config = require('../../webpack.dev.config');

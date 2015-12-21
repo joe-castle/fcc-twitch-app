@@ -17,6 +17,10 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.ProvidePlugin({
+      // Injects Root and configureStore based on NODE_ENV.
+      // Provides Redux devtools if in development,
+      // and strips them if in production.
+      // See /src/frontend/root.js.
       Root: './root',
       configureStore: './store/configureStore'
     }),
@@ -30,7 +34,7 @@ module.exports = {
     loaders: [{
       test: /\.js$/,
       loaders: ['react-hot', 'babel'],
-      include: path.join(__dirname, 'src')
+      exclude: /node_modules/
     },{
       test: /\.scss$/,
       loaders: ['style', 'css', 'autoprefixer', 'sass']

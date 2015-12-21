@@ -12,12 +12,16 @@ module.exports = [{
   },
   plugins: [
     new webpack.ProvidePlugin({
+      // Injects Root and configureStore based on NODE_ENV.
+      // Provides Redux devtools if in development,
+      // and strips them if in production.
+      // See /src/frontend/root.js.
       Root: './root',
       configureStore: './store/configureStore'
     }),
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': '"production"'
+        'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
       }
     }),
     new HtmlWebpackPlugin({
@@ -31,7 +35,7 @@ module.exports = [{
     loaders: [{
       test: /\.js$/,
       loaders: ['babel'],
-      excluse: /node_modules/
+      exclude: /node_modules/
     },{
       test: /\.scss$/,
       loaders: ['style', 'css', 'sass'],
@@ -55,14 +59,4 @@ module.exports = [{
     __dirname: false
   },
   externals: /^[a-z\-0-9]+$/,
-  plugins: [],
-  module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel'
-      }
-    ]
-  }
 }];

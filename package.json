@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "clean": "rimraf build",
-    "start": "babel-node -- src/backend/",
-    "server": "nodemon --exec babel-node -- src/backend/",
-    "test": "mocha --compilers js:babel-core/register --watch",
+    "start": "NODE_ENV=development node -- src/backend/",
+    "server": "NODE_ENV=test nodemon --exec node -- src/backend/",
+    "db": "mongod --dbpath data/db",
+    "test": "NODE_ENV=test mocha --watch",
     "lint": "eslint src/",
     "build:webpack": "NODE_ENV=production webpack --progress --colors --config webpack.prod.config.js",
     "build": "npm run clean && npm run build:webpack",
