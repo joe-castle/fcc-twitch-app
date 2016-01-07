@@ -1,18 +1,10 @@
 'use strict';
 
-const mongoose = require('mongoose');
-
-mongoose.connect('mongodb://localhost:27017/development');
-mongoose.connection.on('error', (err) => console.log('DB Error'));
-
-const Streamers = require('./models/streamers');
-
 // Provides correct path to static files base on NODE_ENV.
 const app = require('./routes')(
   process.env.NODE_ENV === 'production' ?
   'public' :
-  '../public',
-  Streamers.model
+  '../public'
 );
 
 const port = process.env.PORT || 3000;
